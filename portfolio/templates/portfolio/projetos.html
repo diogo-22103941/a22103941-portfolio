@@ -1,0 +1,31 @@
+<!-- projetos.html -->
+
+{% extends 'portfolio/header.html' %}
+{% load static %}
+
+{% block main %}
+<div id="container-grey">
+    <h2 class="slide">Projetos</h2>
+    <div class="fade-in">
+
+        <div id="container-full">
+            {% for projeto in projetos %}
+            <div class="box-2">
+                <div class="nome">
+                    <h3>{{ projeto.titulo }}</h3>
+                </div>
+                <div class="descricao">
+                    <p>Ano:{{ projeto.ano_realizacao }}</p>
+                    <h4><b>Descricao:</b></h4>
+                    <p>{{ projeto.descricao }}</p>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+</div>
+{% endblock %}

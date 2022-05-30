@@ -1,0 +1,88 @@
+<!-- home.html -->
+
+<!DOCTYPE html>
+
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/layout.css' %}">
+
+</head>
+
+<body id="fundo_entrada">
+    <div id="index">
+        <section id="entrada">
+            <div class="titulo">
+                Programação Web
+            </div>
+            <div class="perfil">
+                <img src="{% static 'portfolio/images/perfil_img.png' %}" class="img-fluid rounded-circle">
+            </div>
+            <div class="buttons">
+                <a href="{% url 'portfolio:home' %}">
+                    <button type="button" class="default-button">Entrar</button>
+                </a>
+                {% if request.user.is_authenticated %}
+
+                <a href="{% url 'portfolio:logout' %}">
+                    <button type="button" class="log-button">Logout</button>
+                </a>
+
+                {% else %}
+
+                <button onclick="openLogin()" type="button" class="log-button">Login</button>
+
+            </div>
+
+            <div id="login_area">
+                <form action="login-submit" , method="POST">
+                    {% csrf_token %}
+                    <div id="login-box">
+                        <div>
+                            <label for="username">Utilizador</label>
+                            <span class="input"><input type="text" , id="username" name="username"></span>
+                        </div>
+                        <div>
+                            <label for="password">Senha</label>
+                            <span class="input"><input type="password" id="password" name="password"></span>
+                        </div>
+                        <div class="input">
+                            <button type="submit" class="default-button" onclick="openLogin()">Entrar</button>
+                        </div>
+                    </div>
+            
+                </form>
+            </div>
+            <div>
+                {% for message in messages %}
+                <div class="alert-box">
+                    <strong>Falha no login!</strong> {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+
+            <script>
+                function openLogin() {
+                    var container_login = document.getElementById("login_area");
+                    if (container_login.style.display === "block") {
+                        container_login.style.display = "none";
+                    } else {
+                        container_login.style.display = "block";
+                    }
+                }
+            </script>
+
+            {% endif %}
+
+    </div>
+
+    </section>
+    </div>
+    <footer>ULHT, 2022</footer>
+
+</body>

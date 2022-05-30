@@ -1,0 +1,590 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: grid;
+    padding: 0%;
+    margin: 0%;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    'header'
+    'main'
+    'footer';
+}
+
+h2 {
+    letter-spacing: 4px;
+    margin: 20px;
+}
+
+h3 {
+    letter-spacing: 2px;
+    margin: 20px;
+}
+
+/*******************
+    index start 
+*******************/
+
+#fundo_entrada {
+    background-image: url("../images/fundoTopo.4946e0381df6.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+#index {
+    min-height: 95vh;
+}
+
+#entrada {
+    display: grid;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    grid-template-areas: 
+    'titulo'
+    'perfil'
+    'butoes';
+}
+
+#entrada .titulo {
+    grid-area: titulo;
+    margin-bottom: 50px;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size:xx-large;
+    color: white;
+    box-shadow: 0 0 10px blue;
+    border-radius: 20px;
+    animation: cor_sombra_titulo 3s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+
+@keyframes cor_sombra_titulo {
+    0% {box-shadow: 0 0 10px blue;}
+    50% {box-shadow: 0 0 30px lightblue;}
+    100% {box-shadow: 0 0 10px blue;}
+}
+
+#entrada .perfil {
+    grid-area: perfil;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+#entrada .perfil img {
+    width: 200px;
+    border-radius: 50%;
+    border: 10px solid rgb(82, 82, 82);
+    box-shadow: 5px 5px 20px black;
+}
+
+#entrada .buttons {
+    grid-area: butoes;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#login_area {
+    margin-top: 20px;
+    background-color: white;
+    padding: 10px;
+    border: 2px solid rgb(82, 82, 82);
+    border-radius: 10px;
+    display: none;
+}
+
+.alert-box {
+    background-color: rgb(255, 217, 217);
+    border: 1px red solid;
+    border-radius: 5px;
+    font-size: smaller;
+    padding: 20px;
+    margin: 20px;
+    color: rgb(138, 0, 0);
+}
+
+/******************* 
+    index end
+*******************/
+
+/******************* 
+    Layout start 
+*******************/
+
+header {
+    background-image: linear-gradient(rgb(5, 124, 197), black);
+    height: 50px;
+    z-index:3;
+}
+
+header .login-nav {
+    float: left;
+    height: fit-content;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: lightgrey;
+}
+
+header nav {
+    float: right;
+    margin-top: 15px;
+}
+
+header .menu-desktop {
+    padding: 0 1em;
+    text-decoration: none;
+    color: lightgrey;
+}
+
+header a:hover {
+    color: lightgray;
+    text-shadow: 0px 0px 2px lightgrey;
+}
+
+.button-mobile {
+    display: none;
+}
+
+#menu-mobile {
+    display: none;
+    height: fit-content;
+    width: 300px;
+    padding: 10px;
+    margin-right: 20px;
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: rgb(0, 65, 105);
+    color: white;
+    box-shadow: 3px 3px 20px black;
+    z-index: 1;
+}
+
+#menu-mobile ul {
+    list-style-type:none;
+}
+
+#menu-mobile ul li {
+    margin-bottom: 2rem;
+}
+
+#menu-mobile ul li a {
+    text-decoration: none;
+    color: lightgrey;
+    font-size: x-large;
+}
+
+#menu-mobile ul li a:hover {
+    color: lightgray;
+    text-shadow: 0px 0px 2px lightgrey;
+}
+
+
+@media (max-width:850px) {
+    .button-mobile  {
+        display: block;
+    }
+    .menu-desktop  {
+        display: none;
+    }
+}
+
+#login-box {
+    width: 330px;
+}
+
+#login-box > div {
+    margin-top: 5px;
+}
+
+#login-box .input {
+    float: right;
+    font-style: normal;
+    font-size: small;
+}
+
+#login_area_2 {
+    padding: 10px;
+    height: 110px;
+    display: none;
+    position: absolute;
+    top: 50px;
+    background-color: white;
+    z-index:2;
+    box-shadow: 3px 3px 20px black;
+    margin-left: 10px;
+    transition: 1s;
+}
+
+main {
+    background-image: linear-gradient(lightgrey, white);
+    box-shadow: 0px 2px 5px grey;
+    min-height:90vh;
+}
+
+footer {
+    position: relative;
+    background-color: white;
+    display: flex;
+    height: 3em;
+    width: 100%;
+    justify-content: center;
+    padding: 0 2vw;
+    bottom: 0;
+    align-items: center;
+    font-weight: bold;
+}
+
+.log-button {
+    background-color: white;
+    padding: 1px;
+    min-width: 60px;
+    border-radius: 5px;
+    border: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: smaller;
+    transition: background-color 0.4s;
+}
+
+.log-button:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.default-button {
+    background-color:rgb(94, 164, 235);
+    border: 0;
+    padding: 1px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    min-width: 60px;
+    border-radius: 5px;
+    font-size: smaller;
+    color: white;
+    transition: background-color 0.4s;
+}
+
+.default-button:hover {
+    background-color: rgb(80, 144, 207);
+    cursor: pointer;
+}
+
+.menu-button {
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 20px;
+    height: 2px;
+    background-color: lightgrey;
+    margin: 4px 2px;
+    transition: 0.4s;
+  }
+  
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-4px, 6px);
+    transform: rotate(-45deg) translate(-4px, 6px);
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-2px, -5px);
+    transform: rotate(45deg) translate(-2px, -5px);
+  }
+
+#container-white {
+    padding: 20px;
+    background-color: white;
+}
+
+#container-grey {
+    padding: 20px;
+    background-color: lightgrey;
+}
+
+#container-grey h2 {
+    border-left: 5px solid rgb(5, 124, 197);
+    padding-left: 5px;
+    animation-fill-mode: forwards; 
+}
+
+#container-white h2 {
+    border-left: 5px solid rgb(5, 124, 197);
+    padding-left: 5px;
+    animation-fill-mode: forwards; 
+}
+
+/* Tables layout */
+
+#tabela {
+    overflow-x: auto;
+}
+
+#tabela table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+#tabela th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+#tabela th {
+    border-bottom: 2px black solid;
+}
+  
+#tabela tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/*******************
+    Layout end 
+*******************/
+
+/*******************
+    Home start 
+*******************/
+
+#home {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#home .perfil {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#home .perfil img {
+    width: 200px;
+    border-radius: 50%;
+    border: 10px solid rgb(82, 82, 82);
+    box-shadow: 5px 5px 20px black;
+}
+
+#home .nome {
+    text-align: center;
+    letter-spacing:2px;
+    text-shadow: 2px 2px 10px rgb(82, 82, 82);;
+    color: white;
+}
+
+#home .descricao {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+#competencias {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items:center;
+    gap: 100px;
+}
+
+#competencias > div {
+    box-shadow: 2px 2px 10px grey;
+    background-color: lightblue;
+    border-radius: 10px;
+    width: 300px;
+    height: 200px;
+}
+
+#competencias ul {
+    list-style-type:none;
+}
+
+#skills {
+    opacity: 0;
+    padding: 20px;
+    animation-fill-mode: forwards; 
+}
+
+#skills .progress {
+    border-radius: 0;
+    width: 260px;
+    height: 10px;
+}
+
+#skills .progress-bar {
+    height: 10px;
+}
+
+#skills .valor {
+    float: right;
+    font-style: normal;
+    font-size: small;
+}
+
+#skills li {
+    margin-top: 15px;
+}
+
+/*******************
+    Home end 
+*******************/
+
+/*******************
+    Animacoes start 
+*******************/
+
+.slide {
+    position: relative;
+    animation: slide_in 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+
+@keyframes slide_in {
+    0% {opacity:0; left: -150%}
+    100% {opacity:1; left: 0%}
+}
+
+.fade-in {
+    animation: fade_in 1s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+}
+
+@keyframes fade_in {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+  
+  @-webkit-keyframes fade_in {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+
+/*******************
+    Animacoes end 
+*******************/
+
+/******************************
+    Container com caixas start 
+******************************/
+
+#container-full {
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: space-around;
+    display: flex; 
+    padding: 50px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+#container-full .box-1 {
+    position: relative;
+    border-radius: 10px;
+    max-width: 300px;
+    min-height: 250px;
+    background-color: white;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 0px 25px #000000;
+    margin: 15px;
+    background-image: linear-gradient(white,rgb(5, 124, 197),black);
+}
+
+#container-full .box-2 {
+    position: relative;
+    border-radius: 10px;
+    max-width: 300px;
+    min-height: fit-content;
+    background-color: white;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 0px 25px #000000;
+    margin: 15px;
+    background-image: linear-gradient(white,rgb(5, 124, 197),black);
+}
+
+#container-full h2 {
+    text-transform: uppercase;
+}
+
+#container-full .info {
+    position: absolute;
+    color: lightgrey;
+    bottom: 0;
+}
+
+#container-full .descricao {
+    color: lightgrey;
+    min-height: fit-content;
+}
+
+#container-full > div div{
+    padding: 10px 20px;
+}
+
+#blog {
+    position: relative;
+    width: 400px;
+}
+
+.container-post {
+    padding: 20px;
+    border: 1px solid black;
+    margin: 20px;
+}
+
+.form-control {
+    max-width: 300px;
+}
+
+/******************************
+    Container com caixas end 
+******************************/
+
+/*******************
+    Quizz start 
+*******************/
+
+#fieldset2 { background-color: #c0c0c0; border-radius: 2%; box-shadow: 5px 5px 10px rgb(126, 126, 126); margin-bottom: 15px; max-width: fit-content; padding: 10px;}
+
+#fieldset3 div {
+    margin-top: 30px;
+}
+
+#fieldset3 div p{
+    font-weight: bold;
+}
+
+#resultados {
+    margin: 10px;
+    margin-top: 50px;
+}
+
+#resultados img {
+    border-radius: 20px ;
+    box-shadow: 0px 0px 10px rgb(126, 126, 126);
+}
+
+/*******************
+    Quizz end 
+*******************/

@@ -1,0 +1,74 @@
+<!-- licenciatura.html -->
+
+{% extends 'portfolio/header.html' %}
+
+{% block main %}
+<div id="container-grey">
+    <h2 class="slide">Unidades Curriculares</h2>
+    <div class="fade-in">
+        <div>
+            <h3 class="slide">1º ano</h3>
+        </div>
+
+        <div id="container-full">
+            {% for cadeira in cadeiras %}
+            {% if cadeira.ano == 1 %}
+            <div class="box-1">
+                <div class="nome">
+                    <h3>{{ cadeira.nome }}</h3>
+                </div>
+                <div class="info">
+                    <p>{{ cadeira.ano }} ano | {{ cadeira.semestre }} semestre</p>
+                    <p>{{ cadeira.ects }} ECTS</p>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+
+        </div>
+        <div>
+            <h3 class="slide">2º ano</h3>
+        </div>
+
+        <div id="container-full">
+            {% for cadeira in cadeiras %}
+            {% if cadeira.ano == 2 %}
+            <div class="box-1">
+                <div class="nome">
+                    <h3>{{ cadeira.nome }}</h3>
+                </div>
+                <div class="info">
+                    <p>{{ cadeira.ano }} ano | {{ cadeira.semestre }} semestre</p>
+                    <p>{{ cadeira.ects }} ECTS</p>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+        </div>
+
+        <div>
+            <h3 class="slide">3º ano</h3>
+        </div>
+
+        <div id="container-full">
+            {% for cadeira in cadeiras %}
+            {% if cadeira.ano == 3 %}
+            <div class="box-1">
+                <div class="nome">
+                    <h3>{{ cadeira.nome }}</h3>
+                </div>
+                <div class="info">
+                    <p>{{ cadeira.ano }} ano | {{ cadeira.semestre }} semestre</p>
+                    <p>{{ cadeira.ects }} ECTS</p>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}

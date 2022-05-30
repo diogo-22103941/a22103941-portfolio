@@ -1,0 +1,65 @@
+<!-- licenciatura.html -->
+
+{% extends 'portfolio/header.html' %}
+{% load static %}
+
+{% block main %}
+<div id="container-grey">
+<h2 class="slide">Quizz - Programação Web</h2>
+<div class="quizz">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset id="fieldset2">
+            <fieldset id="fieldset1">
+                <legend>Info utilizador</legend>
+                <p><input type="text" name="nome" placeholder="Nome" autocomplete="off" maxlength="50"></p>
+            </fieldset>
+            <fieldset id="fieldset3">
+                <legend>Questões</legend>
+                <div>
+                    <p>Como se define uma função em Python:</p>
+                    <input type="radio" id="p1_r1" name="pergunta_1" value="r1">
+                    <label for="p1_r1">fun</label>
+                    <br><input type="radio" id="p1_r2" name="pergunta_1" value="r2">
+                    <label for="p1_r2">def</label>
+                    <br><input type="radio" id="p1_r3" name="pergunta_1" value="r3">
+                    <label for="p1_r3">static</label>
+                </div>
+                <div>
+                    <p>Como se declara uma Class em CSS?</p>
+                    <input type="radio" id="p2_r1" name="pergunta_2" value="r1">
+                    <label for="p2_r1">#nome {}</label>
+                    <br><input type="radio" id="p2_r2" name="pergunta_2" value="r2">
+                    <label for="p2_r2">nome {}</label>
+                    <br><input type="radio" id="p2_r3" name="pergunta_2" value="r3">
+                    <label for="p2_r3">.nome {}</label>
+                </div>
+                <div>
+                    <p>Qual a tag para definir o texto to separador numa página HTML?</p>
+                    <input type="radio" id="p3_r1" name="pergunta_3" value="r1">
+                    <label for="p3_r1">div</label>
+                    <br><input type="radio" id="p3_r2" name="pergunta_3" value="r2">
+                    <label for="p3_r2">title</label>
+                    <br><input type="radio" id="p3_r3" name="pergunta_3" value="r3">
+                    <label for="p3_r3">head</label>
+                </div>
+                <div>
+                    <p>Qual a extensão de um ficheiro CSS:</p>
+                    <input type="radio" id="p4_r1" name="pergunta_4" value="r1">
+                    <label for="p4_r1">.html</label>
+                    <br><input type="radio" id="p4_r2" name="pergunta_4" value="r2">
+                    <label for="p4_r2">.js</label>
+                    <br><input type="radio" id="p4_r3" name="pergunta_4" value="r3">
+                    <label for="p4_r3">.css</label>
+                </div>
+            </fieldset>
+        </fieldset>
+        <input class="default-button" type="submit" value="Submeter">
+    </form>
+    <div id="resultados">
+        <h4>Gráfico de resultados</h4>
+        <img src="{% static 'portfolio/images/grafico_resultados.png' %}" alt="">
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+<!-- blog.html -->
+
+{% extends 'portfolio/header.html' %}
+{% load static %}
+
+{% block main %}
+<div id="container-grey">
+    <h2 class="slide">Blog</h2>
+    <div id="blog">
+    
+        {% for post in posts %}
+        <div class="container-post">
+            <div>
+                <h1>{{ post.titulo }}</h1>
+            </div>
+            <div>{{ post.descricao }}</div>
+            <div><i>{{ post.autor }}</i> - {{ post.data }}</div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+<div id="blog">
+    <div class="container-post">
+        <h2>Novo post</h2>
+        {% for message in messages %}
+                <div class="alert-box">
+                    <strong>Erro!</strong> {{ message }}
+                </div>
+            {% endfor %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-group">
+                <input type="submit" class="default-button" value="submeter"></input>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+{% block author %}
+{% endblock %}
+
+{% endblock %}

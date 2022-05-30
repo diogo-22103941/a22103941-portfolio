@@ -1,0 +1,93 @@
+<!-- header.html -->
+
+{% extends 'portfolio/layout.html' %}
+
+{% block header %}
+
+<header>
+    {% if request.user.is_authenticated %}
+    <div class="login-nav">
+
+        <p>Está autenticado como <b><u>{{ user.get_username }}</u></b> <a href="{% url 'portfolio:logout' %}">
+            <button type="button" class="log-button" onclick="openLogin()">Logout</button></a></p>
+
+    </div>
+    {% else %}
+    <div class="login-nav">
+
+        <button type="button" class="log-button" onclick="openLogin()">Login</button>
+
+    </div>
+    {% endif %}
+    <nav>
+        <a href="{% url 'portfolio:home' %}" class="menu-desktop">home</a>
+        <a href="{% url 'portfolio:disciplinas' %}" class="menu-desktop">disciplinas</a>
+        <a href="{% url 'portfolio:projetos' %}" class="menu-desktop">projetos</a>
+        <a href="{% url 'portfolio:blog' %}" class="menu-desktop">blog</a>
+        <a href="{% url 'portfolio:quizz' %}" class="menu-desktop">quizz</a>
+        <div class="button-mobile">
+            <div class="menu-button" onclick="myFunction(this), openMenu()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+    </nav>
+</header>
+{% if request.user.is_authenticated == False %}
+<div id="login_area_2">
+    <form action="login-submit" , method="POST">
+        {% csrf_token %}
+        <div id="login-box">
+            <div>
+                <label for="username">Utilizador</label>
+                <span class="input"><input type="text" , id="username" name="username"></span>
+            </div>
+            <div>
+                <label for="password">Senha</label>
+                <span class="input"><input type="password" id="password" name="password"></span>
+            </div>
+            <div class="input">
+                <button type="submit" class="default-button" onclick="openLogin()">Entrar</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+{% endif %}
+
+<div id="menu-mobile">
+    <ul>
+        <li><a href="{% url 'portfolio:home' %}">home</a></li>
+        <li><a href="{% url 'portfolio:disciplinas' %}">disciplinas</a></li>
+        <li><a href="{% url 'portfolio:projetos' %}">projetos</a></li>
+        <li><a href="{% url 'portfolio:blog' %}">blog</a></li>
+        <li><a href="{% url 'portfolio:quizz' %}">quizz</a></li>
+    </ul>
+</div>
+
+<script>
+    function openLogin() {
+        var container_login = document.getElementById("login_area_2");
+        if (container_login.style.display === "block") {
+            container_login.style.display = "none";
+        } else {
+            container_login.style.display = "block";
+        }
+    }
+
+    function openMenu() {
+        var container_menu = document.getElementById("menu-mobile");
+        if (container_menu.style.display === "block") {
+            container_menu.style.display = "none";
+        } else {
+            container_menu.style.display = "block";
+        }
+    }
+
+    function myFunction(x) {
+        x.classList.toggle("change");
+    }
+</script>
+
+{% endblock %}
